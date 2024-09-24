@@ -7,13 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btn_super_hero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/super_heroes"
+        app:layout_constraintEnd_toStartOf="@+id/btn_villian"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_villian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/villians"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_super_hero"
+        app:layout_constraintTop_toTopOf="@+id/btn_super_hero" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_heroes_villans"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_villian" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

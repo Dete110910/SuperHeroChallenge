@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Super Hero App</string>
+    <string name="villians">Villanos</string>
+    <string name="super_heroes">Heroes</string>
 </resources>
