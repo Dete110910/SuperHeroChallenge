@@ -10,6 +10,7 @@ import com.example.superheroapp.data.models.Superhero
 import com.example.superheroapp.databinding.ActivityCharacterBinding
 
 class RvCharacterAdapter(
+    private val onLocationClickListener: (character: Character) ->Unit
 ) : RecyclerView.Adapter<CharacterViewHolder>() {
 
     var characters = emptyList<Character>()
@@ -20,7 +21,9 @@ class RvCharacterAdapter(
             parent,
             false
         )
-        return CharacterViewHolder(binding)
+        return CharacterViewHolder(binding = binding,
+            onLocationClickListener = onLocationClickListener
+            )
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
