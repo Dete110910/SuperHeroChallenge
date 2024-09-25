@@ -1,9 +1,11 @@
 package com.example.superheroapp
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.superheroapp.databinding.ActivityMainBinding
@@ -11,6 +13,7 @@ import com.example.superheroapp.ui.screens.characters.rv.RvCharacterAdapter
 import com.example.superheroapp.data.*
 import com.example.superheroapp.data.models.Character
 import com.example.superheroapp.data.viewModel.CharactersViewModel
+import com.example.superheroapp.ui.screens.powerDetails.PowerDetails
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +34,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRV() {
-        rvCharactersAdapter = RvCharacterAdapter()
+        rvCharactersAdapter = RvCharacterAdapter(
+        onPowersClickListener ={ character ->
+            launchCharacterPowerDetails(character)
+        }
+
+        )
         binding.rvHeroesVillans.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = rvCharactersAdapter
@@ -48,6 +56,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun launchCharacterPowerDetails(character: Character) {
+        startActivity(
+            Intent(
+                this,
+                PowerDetails::class.java
+            )
+        )
+
+    }
+
     @SuppressLint("NotifyDataSetChanged")
     private fun initUiStateLifecycle() {
         lifecycleScope.launch {
@@ -58,5 +76,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    companion object {
+        const val CHARACTER = "character"
     }
 }
