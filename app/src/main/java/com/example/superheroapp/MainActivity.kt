@@ -14,6 +14,7 @@ import com.example.superheroapp.data.*
 import com.example.superheroapp.data.models.Character
 import com.example.superheroapp.data.viewModel.CharactersViewModel
 import com.example.superheroapp.ui.screens.locationDetails.LocationDetails
+import com.example.superheroapp.ui.screens.powerDetails.PowerDetails
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -37,7 +38,11 @@ class MainActivity : AppCompatActivity() {
         rvCharactersAdapter = RvCharacterAdapter(
             onLocationClickListener = {character ->
                 launchLocationActivity(character)
-            }
+            },
+        onPowersClickListener ={ character ->
+            launchCharacterPowerDetails(character)
+        }
+
         )
         binding.rvHeroesVillans.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
@@ -55,6 +60,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun launchCharacterPowerDetails(character: Character) {
+        startActivity(
+            Intent(
+                this,
+                PowerDetails::class.java
+            )
+        )
+
+    }
+
     @SuppressLint("NotifyDataSetChanged")
     private fun initUiStateLifecycle() {
         lifecycleScope.launch {
@@ -66,6 +81,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun launchLocationActivity(character: Character) {
         startActivity(

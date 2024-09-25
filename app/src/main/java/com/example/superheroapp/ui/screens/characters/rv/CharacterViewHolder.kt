@@ -12,6 +12,7 @@ import com.example.superheroapp.data.models.Superhero
 class CharacterViewHolder(
     private val binding: ActivityCharacterBinding,
     private val onLocationClickListener: (character: Character) ->Unit
+    private val onPowersClickListener: (characeter: Character) -> Unit
 ): RecyclerView.ViewHolder(binding.root){
 
     fun bind(characters: Character){
@@ -21,11 +22,12 @@ class CharacterViewHolder(
 
         when(characters){
             is Superhero -> {
-
                 binding.btnLocations.setOnClickListener{
                     onLocationClickListener(characters)
                 }
-
+                binding.btnPowers.setOnClickListener {
+                    onPowersClickListener(characters)
+                }
                 binding.btnPowers.visibility = View.VISIBLE
                 binding.btnLocations.visibility = View.VISIBLE
             }
