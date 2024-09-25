@@ -1,7 +1,9 @@
 package com.example.superheroapp.data.models
 
 import androidx.annotation.DrawableRes
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Superhero(
     val id: Int,
     val name: String,

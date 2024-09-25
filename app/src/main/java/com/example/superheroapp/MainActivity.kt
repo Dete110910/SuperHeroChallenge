@@ -13,6 +13,7 @@ import com.example.superheroapp.ui.screens.characters.rv.RvCharacterAdapter
 import com.example.superheroapp.data.*
 import com.example.superheroapp.data.models.Character
 import com.example.superheroapp.data.viewModel.CharactersViewModel
+import com.example.superheroapp.ui.screens.locationDetails.LocationDetails
 import com.example.superheroapp.ui.screens.powerDetails.PowerDetails
 import kotlinx.coroutines.launch
 
@@ -35,6 +36,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRV() {
         rvCharactersAdapter = RvCharacterAdapter(
+            onLocationClickListener = {character ->
+                launchLocationActivity(character)
+            },
         onPowersClickListener ={ character ->
             launchCharacterPowerDetails(character)
         }
@@ -76,6 +80,22 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+
+    private fun launchLocationActivity(character: Character) {
+        startActivity(
+            Intent(
+                this,
+                LocationDetails::class.java
+            ).apply {
+                putExtras(
+                    bundleOf(
+                        CHARACTER to character
+                    )
+                )
+            }
+        )
     }
 
     companion object {
