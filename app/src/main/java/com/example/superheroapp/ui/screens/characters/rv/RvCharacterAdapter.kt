@@ -5,12 +5,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import java.util.Objects
 
+import com.example.superheroapp.data.models.Superhero
+import com.example.superheroapp.databinding.ActivityCharacterBinding
+
+
+
 class RvCharacterAdapter(
-    private val characters: List<Objects>
+    private val characters: List<Superhero>
 ) : RecyclerView.Adapter<CharacterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
-        val binding = CharacterViewBinding.inflate(
+        val binding = ActivityCharacterBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -19,7 +24,7 @@ class RvCharacterAdapter(
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        holder.bind(characters)
+        holder.bind(characters[position])
     }
 
     override fun getItemCount(): Int = characters.size

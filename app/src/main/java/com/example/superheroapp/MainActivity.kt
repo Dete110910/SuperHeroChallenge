@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.superheroapp.databinding.ActivityMainBinding
 import com.example.superheroapp.ui.screens.characters.rv.RvCharacterAdapter
+import com.example.superheroapp.data.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRV() {
-        rvCharactersAdapter = RvCharacterAdapter()
+        rvCharactersAdapter = RvCharacterAdapter(generateSuperheroes())
         binding.rvHeroesVillans.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = rvCharactersAdapter
