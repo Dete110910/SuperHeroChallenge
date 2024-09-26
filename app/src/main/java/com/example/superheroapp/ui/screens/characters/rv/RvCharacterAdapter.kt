@@ -10,7 +10,7 @@ import com.example.superheroapp.data.models.Superhero
 import com.example.superheroapp.databinding.ActivityCharacterBinding
 
 class RvCharacterAdapter(
-    private val onLocationClickListener: (character: Character) ->Unit,
+    private val onLocationClickListener: (superhero: Superhero) ->Unit,
     private val onPowersClickListener: (character: Character) -> Unit
 ) : RecyclerView.Adapter<CharacterViewHolder>() {
 

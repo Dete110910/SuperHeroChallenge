@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_location_view_high">60dp</dimen>
+    <dimen name="card_location_view_margin_top">3dp</dimen>
+    <dimen name="card_location_view_corner_radius">5dp</dimen>
+    <dimen name="card_location_text_view_horizontal_margin">5dp</dimen>
+    <dimen name="card_location_text_view_vertical_margin">5dp</dimen>
+    <dimen name="card_location_details_layout_margin">8dp</dimen>
+    <dimen name="card_location_details_corner_radius">16dp</dimen>
+</resources>
