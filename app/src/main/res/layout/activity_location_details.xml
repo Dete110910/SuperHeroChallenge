@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="8dp"
-        app:cardCornerRadius="16dp" />
+        android:layout_margin="@dimen/card_location_details_layout_margin"
+        app:cardCornerRadius="@dimen/card_location_details_corner_radius" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -41,7 +41,7 @@
             app:layout_constraintStart_toEndOf="@+id/iv_character_image"
             app:layout_goneMarginTop="10dp"
             tools:layout_editor_absoluteY="16dp"
-            tools:text="id" />
+            tools:text="Id" />
 
         <TextView
             android:id="@+id/tv_character_name"
@@ -50,7 +50,26 @@
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="@+id/tv_character_id"
             app:layout_constraintTop_toBottomOf="@id/tv_character_id"
-            tools:text="name" />
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/tv_character_alter_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_character_id"
+            app:layout_constraintTop_toBottomOf="@id/tv_character_name"
+            tools:text="Altername" />
+
+        <TextView
+            android:id="@+id/tv_character_main_enemy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_character_id"
+            app:layout_constraintTop_toBottomOf="@id/tv_character_alter_name"
+            tools:text="Main enemy" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

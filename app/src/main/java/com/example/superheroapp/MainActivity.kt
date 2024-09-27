@@ -10,8 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.superheroapp.databinding.ActivityMainBinding
 import com.example.superheroapp.ui.screens.characters.rv.RvCharacterAdapter
-import com.example.superheroapp.data.*
 import com.example.superheroapp.data.models.Character
+import com.example.superheroapp.data.models.Superhero
 import com.example.superheroapp.data.viewModel.CharactersViewModel
 import com.example.superheroapp.ui.screens.locationDetails.LocationDetails
 import com.example.superheroapp.ui.screens.powerDetails.PowerDetails
@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRV() {
         rvCharactersAdapter = RvCharacterAdapter(
-            onLocationClickListener = {character ->
-                launchLocationActivity(character)
+            onLocationClickListener = {superHero ->
+                launchLocationActivity(superHero)
             },
         onPowersClickListener ={ character ->
             launchCharacterPowerDetails(character)
@@ -82,8 +82,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    private fun launchLocationActivity(character: Character) {
+    private fun launchLocationActivity(superHero: Superhero) {
         startActivity(
             Intent(
                 this,
@@ -91,7 +90,7 @@ class MainActivity : AppCompatActivity() {
             ).apply {
                 putExtras(
                     bundleOf(
-                        CHARACTER to character
+                        SUPER_HERO to superHero
                     )
                 )
             }
@@ -99,6 +98,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val CHARACTER = "character"
+        const val SUPER_HERO = "superHero"
     }
 }
