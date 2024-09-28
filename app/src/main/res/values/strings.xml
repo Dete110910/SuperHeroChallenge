@@ -6,4 +6,6 @@
     <string name="locations">Ubicaciones</string>
     <string name="location_id">Identificación de la locación: %1$s</string>
     <string name="location_name">Nombre de la locación: %1$s</string>
+    <string name="power_id">Identificación del poder: %1$s</string>
+    <string name="power_name">Nombre del poder: %1$s</string>
 </resources>

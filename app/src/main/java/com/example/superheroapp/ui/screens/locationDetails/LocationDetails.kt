@@ -12,8 +12,10 @@ import com.example.superheroapp.data.models.Superhero
 import com.example.superheroapp.data.viewModel.LocationViewModel
 import com.example.superheroapp.databinding.ActivityLocationDetailsBinding
 import com.example.superheroapp.ui.screens.locationDetails.rv.RvLocationAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class LocationDetails : AppCompatActivity() {
 
     private lateinit var binding: ActivityLocationDetailsBinding

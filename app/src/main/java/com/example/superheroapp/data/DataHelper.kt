@@ -31,7 +31,6 @@ fun generateSuperheroes(): List<Superhero> {
         )
         superheroes.add(superhero)
     }
-
     return superheroes
 }
 

@@ -15,8 +15,10 @@ import com.example.superheroapp.data.models.Superhero
 import com.example.superheroapp.data.viewModel.CharactersViewModel
 import com.example.superheroapp.ui.screens.locationDetails.LocationDetails
 import com.example.superheroapp.ui.screens.powerDetails.PowerDetails
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -39,8 +41,8 @@ class MainActivity : AppCompatActivity() {
             onLocationClickListener = {superHero ->
                 launchLocationActivity(superHero)
             },
-        onPowersClickListener ={ character ->
-            launchCharacterPowerDetails(character)
+        onPowersClickListener ={ superHero ->
+            launchCharacterPowerDetails(superHero)
         }
 
         )
@@ -60,12 +62,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun launchCharacterPowerDetails(character: Character) {
+    private fun launchCharacterPowerDetails(superHero: Superhero) {
         startActivity(
             Intent(
                 this,
                 PowerDetails::class.java
-            )
+            ).apply {
+                putExtras(
+                    bundleOf(
+                        SUPER_HERO to superHero
+                    )
+                )
+            }
         )
 
     }
