@@ -12,7 +12,7 @@ import com.example.superheroapp.data.models.Superhero
 class CharacterViewHolder(
     private val binding: ActivityCharacterBinding,
     private val onLocationClickListener: (superHero: Superhero) ->Unit,
-    private val onPowersClickListener: (characeter: Character) -> Unit
+    private val onPowersClickListener: (superHero: Superhero) -> Unit
 ): RecyclerView.ViewHolder(binding.root){
 
     fun bind(characters: Character){

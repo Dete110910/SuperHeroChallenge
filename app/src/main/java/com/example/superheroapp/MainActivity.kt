@@ -39,8 +39,8 @@ class MainActivity : AppCompatActivity() {
             onLocationClickListener = {superHero ->
                 launchLocationActivity(superHero)
             },
-        onPowersClickListener ={ character ->
-            launchCharacterPowerDetails(character)
+        onPowersClickListener ={ superHero ->
+            launchCharacterPowerDetails(superHero)
         }
 
         )
@@ -60,12 +60,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun launchCharacterPowerDetails(character: Character) {
+    private fun launchCharacterPowerDetails(superHero: Superhero) {
         startActivity(
             Intent(
                 this,
                 PowerDetails::class.java
-            )
+            ).apply {
+                putExtras(
+                    bundleOf(
+                        SUPER_HERO to superHero
+                    )
+                )
+            }
         )
 
     }
