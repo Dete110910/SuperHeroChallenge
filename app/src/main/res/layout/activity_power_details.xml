@@ -52,6 +52,24 @@
             app:layout_constraintTop_toBottomOf="@id/tv_character_id"
             tools:text="name" />
 
+        <TextView
+            android:id="@+id/tv_character_alter_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_character_id"
+            app:layout_constraintTop_toBottomOf="@id/tv_character_name"
+            tools:text="Altername" />
+
+        <TextView
+            android:id="@+id/tv_character_main_enemy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_character_id"
+            app:layout_constraintTop_toBottomOf="@id/tv_character_alter_name"
+            tools:text="Main enemy" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView

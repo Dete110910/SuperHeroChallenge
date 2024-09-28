@@ -11,7 +11,7 @@ import com.example.superheroapp.databinding.ActivityCharacterBinding
 
 class RvCharacterAdapter(
     private val onLocationClickListener: (superhero: Superhero) ->Unit,
-    private val onPowersClickListener: (character: Character) -> Unit
+    private val onPowersClickListener: (superhero: Superhero) -> Unit
 ) : RecyclerView.Adapter<CharacterViewHolder>() {
 
     var characters = emptyList<Character>()
