@@ -15,8 +15,10 @@ import com.example.superheroapp.data.models.Superhero
 import com.example.superheroapp.data.viewModel.CharactersViewModel
 import com.example.superheroapp.ui.screens.locationDetails.LocationDetails
 import com.example.superheroapp.ui.screens.powerDetails.PowerDetails
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

@@ -2,28 +2,25 @@ package com.example.superheroapp.ui.screens.powerDetails
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.superheroapp.MainActivity.Companion.SUPER_HERO
-import com.example.superheroapp.R
 import com.example.superheroapp.data.models.Superhero
 import com.example.superheroapp.data.viewModel.PowerViewModel
 import com.example.superheroapp.databinding.ActivityPowerDetailsBinding
 import com.example.superheroapp.ui.screens.powerDetails.rv.RvPowerAdapter
-import kotlinx.coroutines.flow.collect
+import dagger.hilt.android.AndroidEntryPoint
+
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class PowerDetails : AppCompatActivity() {
 
     private lateinit var binding: ActivityPowerDetailsBinding
     private lateinit var rvPowerAdapter: RvPowerAdapter
-    private val powerViewModel : PowerViewModel by viewModels()
+    private val powerViewModel: PowerViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,12 +56,11 @@ class PowerDetails : AppCompatActivity() {
                         rvPowerAdapter.notifyDataSetChanged()
                     }
                 }
-
             }
         }
     }
 
-    fun getSuperhero(){
+    private fun getSuperhero() {
         val superhero = intent.extras?.getParcelable<Superhero>(SUPER_HERO)
         superhero?.let {
             powerViewModel.setSuperHero(superhero)
